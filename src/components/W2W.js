@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./W2W.css";
 import logo from "./assets/logo2.png";
 
@@ -46,6 +46,20 @@ function W2W() {
     fetchMovies(randomCategory);
   };
 
+  // ===== Add AdSense script =====
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3886539674547850";
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="app-container">
       <header className="header">
@@ -55,6 +69,17 @@ function W2W() {
           🎬 Confused what to watch? <em>Let us decide for you!</em>
         </p>
       </header>
+
+      {/* ===== Ad Unit after header ===== */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block", textAlign: "center", margin: "20px 0" }}
+        data-ad-client="ca-pub-3886539674547850"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>{(window.adsbygoogle = window.adsbygoogle || []).push({})}</script>
 
       {/* Category Selection */}
       <div className="categories">
@@ -79,6 +104,17 @@ function W2W() {
         </button>
       </div>
 
+      {/* ===== Ad Unit after categories ===== */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block", textAlign: "center", margin: "20px 0" }}
+        data-ad-client="ca-pub-3886539674547850"
+        data-ad-slot="0987654321"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>{(window.adsbygoogle = window.adsbygoogle || []).push({})}</script>
+
       {/* Movies */}
       <div className="movies-grid">
         {loading ? (
@@ -86,11 +122,7 @@ function W2W() {
         ) : movies.length > 0 ? (
           movies.map((movie) => (
             <div key={movie.imdbID} className="movie-card">
-              <img
-                src={movie.Poster}
-                alt={movie.Title}
-                className="movie-poster"
-              />
+              <img src={movie.Poster} alt={movie.Title} className="movie-poster" />
               <div className="movie-info">
                 <h3>{movie.Title}</h3>
                 <p>{movie.Year}</p>
