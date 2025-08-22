@@ -1,28 +1,45 @@
+/* Import a stylish font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
 /* General App Container */
 .app-container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(135deg, #2e026d, #5f0a87, #a4508b);
   min-height: 100vh;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Header */
 .header {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease;
 }
 .logo-img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
 }
 .title {
-  font-size: 2rem;
-  margin: 10px 0;
+  font-size: 2.5rem;
+  margin: 15px 0 5px;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255,0,204,0.7);
 }
 .subtitle {
   font-size: 1rem;
-  color: #ddd;
+  color: #cdb4db;
+  letter-spacing: 1px;
 }
 
 /* Categories */
@@ -30,20 +47,24 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin: 20px 0;
+  gap: 15px;
+  margin: 25px 0;
 }
 .radio-label {
-  background: #1f2937;
-  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 18px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #fff;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 0, 204, 0.4);
+  backdrop-filter: blur(10px);
+  text-shadow: 0 0 6px rgba(255,0,204,0.8);
 }
 .radio-label:hover {
-  background: #374151;
+  background: rgba(255, 0, 204, 0.3);
+  transform: translateY(-2px);
 }
 input[type="radio"] {
   margin-right: 6px;
@@ -51,81 +72,107 @@ input[type="radio"] {
 
 /* Surprise Button */
 .button-container {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 .surprise-btn {
-  background: #ff4757;
+  background: linear-gradient(135deg, #ff00cc, #3333ff);
   color: #fff;
   border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
+  padding: 14px 30px;
+  border-radius: 35px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 204, 0.6);
+  text-shadow: 0 0 6px rgba(0,0,0,0.8);
 }
 .surprise-btn:hover {
-  background: #ff6b81;
+  background: linear-gradient(135deg, #ff33cc, #6600ff);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 204, 0.9);
 }
 
 /* Movies Grid */
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 1100px;
 }
 .movie-card {
-  background: #1e293b;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 204, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 .movie-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 30px rgba(255,0,204,0.7);
 }
 .movie-poster {
   width: 100%;
-  height: 250px;
+  height: 280px;
   object-fit: cover;
 }
 .movie-info {
-  padding: 10px;
+  padding: 12px;
 }
 .movie-info h3 {
-  font-size: 1rem;
-  margin: 5px 0;
+  font-size: 1.05rem;
+  margin: 8px 0;
+  color: #e0c3fc;
+  text-shadow: 0 0 5px rgba(255,0,204,0.8);
 }
 .movie-info p {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #c8b6ff;
 }
 .no-movies {
-  margin-top: 20px;
-  color: #bbb;
+  margin-top: 25px;
+  color: #f8f9fa;
+  font-size: 1rem;
+  font-style: italic;
+  text-shadow: 0 0 5px rgba(51,51,255,0.6);
 }
 
-/* 📱 Mobile Responsive */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .subtitle {
     font-size: 0.9rem;
   }
   .categories {
-    gap: 8px;
+    gap: 10px;
   }
   .radio-label {
-    font-size: 0.8rem;
-    padding: 6px 12px;
+    font-size: 0.85rem;
+    padding: 8px 14px;
   }
   .surprise-btn {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   .movie-poster {
-    height: 200px;
+    height: 220px;
+  }
+}
+
+/* Simple Fade Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
